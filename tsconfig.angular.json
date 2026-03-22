@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "bundler",
+    "declaration": true,
+    "outDir": "dist-angular",
+    "rootDir": "src-angular",
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "strict": false
+  },
+  "include": ["src-angular/**/*.ts"]
+}
