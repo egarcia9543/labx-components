@@ -1,8 +1,24 @@
 import { Config } from '@stencil/core';
+import { angularOutputTarget } from '@stencil/angular-output-target';
 
 export const config: Config = {
   namespace: 'labx-components',
+  globalStyle: 'src/styles/tokens.css',
   outputTargets: [
+    angularOutputTarget({
+      componentCorePackage: 'labx-components',
+      outputType: 'standalone',
+      directivesProxyFile: 'dist-angular/components.ts',
+      directivesArrayFile: 'dist-angular/index.ts',
+      valueAccessorConfigs: [
+        {
+          elementSelectors: ['labx-input'],
+          event: 'labxChange',
+          targetAttr: 'value',
+          type: 'text',
+        },
+      ],
+    }),
     {
       type: 'dist',
       esmLoaderPath: '../loader',
@@ -17,7 +33,7 @@ export const config: Config = {
     },
     {
       type: 'www',
-      serviceWorker: null, // disable service workers
+      serviceWorker: null,
     },
   ],
 };

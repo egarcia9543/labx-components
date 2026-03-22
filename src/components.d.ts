@@ -6,63 +6,232 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
+    interface LabxButton {
         /**
-          * The first name
+          * Deshabilita el botón
+          * @default false
          */
-        "first": string;
+        "disabled": boolean;
         /**
-          * The last name
+          * Texto del botón
+          * @default 'Button'
          */
-        "last": string;
+        "label": string;
         /**
-          * The middle name
+          * Tipo HTML del botón
+          * @default 'button'
          */
-        "middle": string;
+        "type": 'button' | 'submit' | 'reset';
+        /**
+          * Estilo visual: primary | secondary | danger
+          * @default 'primary'
+         */
+        "variant": 'primary' | 'secondary' | 'danger';
+    }
+    interface LabxIcon {
+        /**
+          * Filled (true) u Outlined (false)
+          * @default false
+         */
+        "filled": boolean;
+        /**
+          * Nombre del ícono de Material Symbols (ej: "email", "search", "close")
+         */
+        "name": string;
+        /**
+          * Tamaño en px
+          * @default 20
+         */
+        "size": number;
+    }
+    interface LabxInput {
+        /**
+          * Deshabilita el input
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Mensaje de error
+         */
+        "error": string;
+        /**
+          * Texto del label flotante
+         */
+        "label": string;
+        /**
+          * Type HTML del input
+          * @default 'text'
+         */
+        "type": string;
+        /**
+          * Valor del input
+          * @default ''
+         */
+        "value": string;
     }
 }
+export interface LabxButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLLabxButtonElement;
+}
+export interface LabxInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLLabxInputElement;
+}
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLLabxButtonElementEventMap {
+        "labxClick": void;
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    interface HTMLLabxButtonElement extends Components.LabxButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLLabxButtonElementEventMap>(type: K, listener: (this: HTMLLabxButtonElement, ev: LabxButtonCustomEvent<HTMLLabxButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLLabxButtonElementEventMap>(type: K, listener: (this: HTMLLabxButtonElement, ev: LabxButtonCustomEvent<HTMLLabxButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLLabxButtonElement: {
+        prototype: HTMLLabxButtonElement;
+        new (): HTMLLabxButtonElement;
+    };
+    interface HTMLLabxIconElement extends Components.LabxIcon, HTMLStencilElement {
+    }
+    var HTMLLabxIconElement: {
+        prototype: HTMLLabxIconElement;
+        new (): HTMLLabxIconElement;
+    };
+    interface HTMLLabxInputElementEventMap {
+        "labxChange": string;
+    }
+    interface HTMLLabxInputElement extends Components.LabxInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLLabxInputElementEventMap>(type: K, listener: (this: HTMLLabxInputElement, ev: LabxInputCustomEvent<HTMLLabxInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLLabxInputElementEventMap>(type: K, listener: (this: HTMLLabxInputElement, ev: LabxInputCustomEvent<HTMLLabxInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLLabxInputElement: {
+        prototype: HTMLLabxInputElement;
+        new (): HTMLLabxInputElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "labx-button": HTMLLabxButtonElement;
+        "labx-icon": HTMLLabxIconElement;
+        "labx-input": HTMLLabxInputElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
+    type OneOf<K extends string, PropT, AttrT = PropT> = { [P in K]: PropT } & { [P in `attr:${K}` | `prop:${K}`]?: never } | { [P in `attr:${K}`]: AttrT } & { [P in K | `prop:${K}`]?: never } | { [P in `prop:${K}`]: PropT } & { [P in K | `attr:${K}`]?: never };
+
+    interface LabxButton {
         /**
-          * The first name
+          * Deshabilita el botón
+          * @default false
          */
-        "first"?: string;
+        "disabled"?: boolean;
         /**
-          * The last name
+          * Texto del botón
+          * @default 'Button'
          */
-        "last"?: string;
+        "label"?: string;
         /**
-          * The middle name
+          * Se emite cuando el botón es clickeado
          */
-        "middle"?: string;
+        "onLabxClick"?: (event: LabxButtonCustomEvent<void>) => void;
+        /**
+          * Tipo HTML del botón
+          * @default 'button'
+         */
+        "type"?: 'button' | 'submit' | 'reset';
+        /**
+          * Estilo visual: primary | secondary | danger
+          * @default 'primary'
+         */
+        "variant"?: 'primary' | 'secondary' | 'danger';
+    }
+    interface LabxIcon {
+        /**
+          * Filled (true) u Outlined (false)
+          * @default false
+         */
+        "filled"?: boolean;
+        /**
+          * Nombre del ícono de Material Symbols (ej: "email", "search", "close")
+         */
+        "name": string;
+        /**
+          * Tamaño en px
+          * @default 20
+         */
+        "size"?: number;
+    }
+    interface LabxInput {
+        /**
+          * Deshabilita el input
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Mensaje de error
+         */
+        "error"?: string;
+        /**
+          * Texto del label flotante
+         */
+        "label"?: string;
+        /**
+          * Se emite cuando el valor cambia
+         */
+        "onLabxChange"?: (event: LabxInputCustomEvent<string>) => void;
+        /**
+          * Type HTML del input
+          * @default 'text'
+         */
+        "type"?: string;
+        /**
+          * Valor del input
+          * @default ''
+         */
+        "value"?: string;
     }
 
-    interface MyComponentAttributes {
-        "first": string;
-        "middle": string;
-        "last": string;
+    interface LabxButtonAttributes {
+        "label": string;
+        "variant": 'primary' | 'secondary' | 'danger';
+        "disabled": boolean;
+        "type": 'button' | 'submit' | 'reset';
+    }
+    interface LabxIconAttributes {
+        "name": string;
+        "size": number;
+        "filled": boolean;
+    }
+    interface LabxInputAttributes {
+        "label": string;
+        "value": string;
+        "type": string;
+        "disabled": boolean;
+        "error": string;
     }
 
     interface IntrinsicElements {
-        "my-component": Omit<MyComponent, keyof MyComponentAttributes> & { [K in keyof MyComponent & keyof MyComponentAttributes]?: MyComponent[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `attr:${K}`]?: MyComponentAttributes[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `prop:${K}`]?: MyComponent[K] };
+        "labx-button": Omit<LabxButton, keyof LabxButtonAttributes> & { [K in keyof LabxButton & keyof LabxButtonAttributes]?: LabxButton[K] } & { [K in keyof LabxButton & keyof LabxButtonAttributes as `attr:${K}`]?: LabxButtonAttributes[K] } & { [K in keyof LabxButton & keyof LabxButtonAttributes as `prop:${K}`]?: LabxButton[K] };
+        "labx-icon": Omit<LabxIcon, keyof LabxIconAttributes> & { [K in keyof LabxIcon & keyof LabxIconAttributes]?: LabxIcon[K] } & { [K in keyof LabxIcon & keyof LabxIconAttributes as `attr:${K}`]?: LabxIconAttributes[K] } & { [K in keyof LabxIcon & keyof LabxIconAttributes as `prop:${K}`]?: LabxIcon[K] } & OneOf<"name", LabxIcon["name"], LabxIconAttributes["name"]>;
+        "labx-input": Omit<LabxInput, keyof LabxInputAttributes> & { [K in keyof LabxInput & keyof LabxInputAttributes]?: LabxInput[K] } & { [K in keyof LabxInput & keyof LabxInputAttributes as `attr:${K}`]?: LabxInputAttributes[K] } & { [K in keyof LabxInput & keyof LabxInputAttributes as `prop:${K}`]?: LabxInput[K] };
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.IntrinsicElements["my-component"] & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "labx-button": LocalJSX.IntrinsicElements["labx-button"] & JSXBase.HTMLAttributes<HTMLLabxButtonElement>;
+            "labx-icon": LocalJSX.IntrinsicElements["labx-icon"] & JSXBase.HTMLAttributes<HTMLLabxIconElement>;
+            "labx-input": LocalJSX.IntrinsicElements["labx-input"] & JSXBase.HTMLAttributes<HTMLLabxInputElement>;
         }
     }
 }

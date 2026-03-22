@@ -1,0 +1,34 @@
+/**
+ * LabX Design Tokens
+ * Paleta de colores y variables globales del sistema de diseño.
+ */
+
+:root {
+  /* ─── Backgrounds ─────────────────────────────────── */
+  --color-bg-surface:  #FFFDF8;   /* blanco roto, fondo principal */
+  --color-bg-light:    #FAF3E1;   /* crema, fondo de secciones */
+  --color-bg-subtle:   #F5E7C6;   /* beige, fondo de cards / inputs */
+
+  /* ─── Primary (Naranja) ───────────────────────────── */
+  --color-primary:         #FA8112;
+  --color-primary-hover:   #D96A0A;
+  --color-primary-light:   #FEE8CE;
+
+  /* ─── Text ────────────────────────────────────────── */
+  --color-text-default:  #222222;
+  --color-text-muted:    #8C7B6B;
+
+  /* ─── Border ──────────────────────────────────────── */
+  --color-border:  #DDD0B3;
+
+  /* ─── Semantic: Success ───────────────────────────── */
+  --color-success:        #3A8C5C;
+  --color-success-light:  #D4EDDF;
+
+  /* ─── Semantic: Danger ────────────────────────────── */
+  --color-danger:        #C0392B;
+  --color-danger-light:  #FAD7D4;
+
+  /* ─── Disabled ────────────────────────────────────── */
+  --color-disabled:  #B0A89A;
+}

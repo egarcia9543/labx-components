@@ -3,12 +3,97 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-    <title>Stencil Component Starter</title>
+    <title>LabX Components</title>
 
+    <link rel="stylesheet" href="/build/labx-components.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script type="module" src="/build/labx-components.esm.js"></script>
     <script nomodule src="/build/labx-components.js"></script>
+
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        background-color: #FAF3E1;
+        padding: 40px;
+      }
+
+      h2 {
+        color: #222222;
+        margin-top: 32px;
+        margin-bottom: 12px;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        opacity: 0.5;
+      }
+
+      .row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+    </style>
   </head>
   <body>
-    <my-component first="Stencil" middle="'Don't call me a framework'" last="JS"></my-component>
+
+    <h2>Primary</h2>
+    <div class="row">
+      <labx-button label="Guardar"></labx-button>
+      <labx-button label="Guardar" disabled></labx-button>
+    </div>
+
+    <h2>Secondary</h2>
+    <div class="row">
+      <labx-button label="Cancelar" variant="secondary"></labx-button>
+      <labx-button label="Cancelar" variant="secondary" disabled></labx-button>
+    </div>
+
+    <h2>Danger</h2>
+    <div class="row">
+      <labx-button label="Eliminar" variant="danger"></labx-button>
+      <labx-button label="Eliminar" variant="danger" disabled></labx-button>
+    </div>
+
+    <h2>Icons</h2>
+    <div class="row">
+      <labx-icon name="email" size="24"></labx-icon>
+      <labx-icon name="search" size="24"></labx-icon>
+      <labx-icon name="close" size="24"></labx-icon>
+      <labx-icon name="favorite" size="24"></labx-icon>
+      <labx-icon name="favorite" size="24" filled></labx-icon>
+    </div>
+
+    <h2>Input — básico</h2>
+    <div class="row" style="flex-direction: column; max-width: 320px; gap: 20px;">
+      <labx-input label="Nombre"></labx-input>
+
+      <labx-input label="Correo">
+        <labx-icon slot="icon-left" name="email" size="18"></labx-icon>
+      </labx-input>
+
+      <labx-input label="Buscar">
+        <labx-icon slot="icon-right" name="search" size="18"></labx-icon>
+      </labx-input>
+
+      <labx-input label="Campo con error" error="Este campo es requerido"></labx-input>
+
+      <labx-input label="Deshabilitado" value="No editable" disabled></labx-input>
+    </div>
+
+    <script>
+      document.querySelectorAll('labx-button').forEach(btn => {
+        btn.addEventListener('labxClick', () => {
+          console.log(`Click en botón: "${btn.label}" (${btn.variant})`);
+        });
+      });
+
+      document.querySelectorAll('labx-input').forEach(input => {
+        input.addEventListener('labxChange', (e) => {
+          console.log('labxChange:', e.detail);
+        });
+      });
+    </script>
+
   </body>
 </html>

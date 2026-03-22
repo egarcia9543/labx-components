@@ -1,0 +1,74 @@
+:host {
+  display: inline-block;
+}
+
+/* ─── Base ───────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 10px 20px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--color-primary-light);
+  outline-offset: 2px;
+}
+
+/* ─── Variant: Primary ───────────────────────────────── */
+.btn--primary {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-bg-surface);
+}
+
+.btn--primary:hover:not(:disabled) {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
+
+/* ─── Variant: Secondary ─────────────────────────────── */
+.btn--secondary {
+  background-color: transparent;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn--secondary:hover:not(:disabled) {
+  background-color: var(--color-primary-light);
+}
+
+/* ─── Variant: Danger ────────────────────────────────── */
+.btn--danger {
+  background-color: var(--color-danger);
+  border-color: var(--color-danger);
+  color: var(--color-bg-surface);
+}
+
+.btn--danger:hover:not(:disabled) {
+  background-color: var(--color-danger-light);
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+
+/* ─── Disabled ───────────────────────────────────────── */
+.btn:disabled {
+  background-color: var(--color-bg-subtle);
+  border-color: var(--color-border);
+  color: var(--color-disabled);
+  cursor: not-allowed;
+}
