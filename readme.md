@@ -1,111 +1,207 @@
-[![Built With Stencil](https://img.shields.io/badge/-Built%20With%20Stencil-16161d.svg?logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjIuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI%2BCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI%2BCgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9Cjwvc3R5bGU%2BCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00MjQuNywzNzMuOWMwLDM3LjYtNTUuMSw2OC42LTkyLjcsNjguNkgxODAuNGMtMzcuOSwwLTkyLjctMzAuNy05Mi43LTY4LjZ2LTMuNmgzMzYuOVYzNzMuOXoiLz4KPHBhdGggY2xhc3M9InN0MCIgZD0iTTQyNC43LDI5Mi4xSDE4MC40Yy0zNy42LDAtOTIuNy0zMS05Mi43LTY4LjZ2LTMuNkgzMzJjMzcuNiwwLDkyLjcsMzEsOTIuNyw2OC42VjI5Mi4xeiIvPgo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNDI0LjcsMTQxLjdIODcuN3YtMy42YzAtMzcuNiw1NC44LTY4LjYsOTIuNy02OC42SDMzMmMzNy45LDAsOTIuNywzMC43LDkyLjcsNjguNlYxNDEuN3oiLz4KPC9zdmc%2BCg%3D%3D&colorA=16161d&style=flat-square)](https://stenciljs.com)
+# labx-components
 
-# Stencil Component Starter
+Web Components library built with [Stencil](https://stenciljs.com/). Includes Angular wrappers and a warm design token system.
 
-> This is a starter project for building a standalone Web Components using Stencil.
+## Components
 
-Stencil is a compiler for building fast web apps using Web Components.
+| Component | Tag | Description |
+|-----------|-----|-------------|
+| Button | `<labx-button>` | Button with primary, secondary and danger variants |
+| Input | `<labx-input>` | Input with floating label and icon slots |
+| Icon | `<labx-icon>` | Material Symbols icon |
 
-Stencil combines the best concepts of the most popular frontend frameworks into a compile-time rather than runtime tool. Stencil takes TypeScript, JSX, a tiny virtual DOM layer, efficient one-way data binding, an asynchronous rendering pipeline (similar to React Fiber), and lazy-loading out of the box, and generates 100% standards-based Web Components that run in any browser supporting the Custom Elements specification.
+---
 
-Stencil components are just Web Components, so they work in any major framework or with no framework at all.
-
-## Getting Started
-
-To start building a new web component using Stencil, clone this repo to a new directory:
-
-```bash
-git clone https://github.com/stenciljs/component-starter.git my-component
-cd my-component
-git remote rm origin
-```
-
-and run:
+## Installation
 
 ```bash
-npm install
-npm start
+npm install labx-components
 ```
 
-To build the component for production, run:
+---
 
-```bash
-npm run build
-```
+## Usage
 
-To run the unit tests for the components, run:
+### Vanilla / HTML
 
-```bash
-npm test
-```
-
-Need help? Check out our docs [here](https://stenciljs.com/docs/my-first-component).
-
-## Naming Components
-
-When creating new component tags, we recommend _not_ using `stencil` in the component name (ex: `<stencil-datepicker>`). This is because the generated component has little to nothing to do with Stencil; it's just a web component!
-
-Instead, use a prefix that fits your company or any name for a group of related components. For example, all of the [Ionic-generated](https://ionicframework.com/) web components use the prefix `ion`.
-
-## Using this component
-
-There are two strategies we recommend for using web components built with Stencil.
-
-The first step for all two of these strategies is to [publish to NPM](https://docs.npmjs.com/getting-started/publishing-npm-packages).
-
-You can read more about these different approaches in the [Stencil docs](https://stenciljs.com/docs/publishing).
-
-### Lazy Loading
-
-If your Stencil project is built with the [`dist`](https://stenciljs.com/docs/distribution) output target, you can import a small bootstrap script that registers all components and allows you to load individual component scripts lazily.
-
-For example, given your Stencil project namespace is called `my-design-system`, to use `my-component` on any website, inject this into your HTML:
+Add the font and scripts to your HTML:
 
 ```html
-<script type="module" src="https://unpkg.com/my-design-system"></script>
-<!--
-To avoid unpkg.com redirects to the actual file, you can also directly import:
-https://unpkg.com/foobar-design-system@0.0.1/dist/foobar-design-system/foobar-design-system.esm.js
--->
-<my-component first="Stencil" middle="'Don't call me a framework'" last="JS"></my-component>
+<link rel="stylesheet" href="node_modules/labx-components/dist/labx-components/labx-components.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<script type="module" src="node_modules/labx-components/dist/labx-components/labx-components.esm.js"></script>
 ```
 
-This will only load the necessary scripts needed to render `<my-component />`. Once more components of this package are used, they will automatically be loaded lazily.
+```html
+<labx-button label="Guardar"></labx-button>
 
-You can also import the script as part of your `node_modules` in your applications entry file:
+<labx-button label="Eliminar" variant="danger"></labx-button>
 
-```tsx
-import 'foobar-design-system/dist/foobar-design-system/foobar-design-system.esm.js';
+<labx-input label="Correo">
+  <labx-icon slot="icon-left" name="email"></labx-icon>
+</labx-input>
+
+<labx-icon name="favorite" filled></labx-icon>
 ```
 
-Check out this [Live Demo](https://stackblitz.com/edit/vitejs-vite-y6v26a?file=src%2Fmain.tsx).
+---
 
-### Standalone
+### Angular
 
-If you are using a Stencil component library with `dist-custom-elements`, we recommend importing Stencil components individually in those files where they are needed.
+**1. Register custom elements in `main.ts`:**
 
-To export Stencil components as standalone components make sure you have the [`dist-custom-elements`](https://stenciljs.com/docs/custom-elements) output target defined in your `stencil.config.ts`.
+```ts
+import { defineCustomElements } from 'labx-components/loader';
+defineCustomElements();
+```
 
-For example, given you'd like to use `<my-component />` as part of a React component, you can import the component directly via:
+**2. Add styles in `angular.json`:**
 
-```tsx
-import 'foobar-design-system/my-component';
+```json
+"styles": [
+  "node_modules/labx-components/dist/labx-components/labx-components.css"
+]
+```
 
-function App() {
-  return (
-    <>
-      <div>
-        <my-component
-          first="Stencil"
-          middle="'Don't call me a framework'"
-          last="JS"
-        ></my-component>
-      </div>
-    </>
-  );
+**3. Add the Material Symbols font in `index.html`:**
+
+```html
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+```
+
+**4. Import and use the Angular wrappers:**
+
+```ts
+import { LabxButton, LabxInput, LabxIcon } from 'labx-components/angular';
+
+@Component({
+  standalone: true,
+  imports: [LabxButton, LabxInput, LabxIcon],
+  template: `
+    <labx-button label="Guardar" (labxClick)="save()"></labx-button>
+
+    <labx-input label="Correo" [value]="email" (labxChange)="email = $event.detail">
+      <labx-icon slot="icon-left" name="email"></labx-icon>
+    </labx-input>
+  `
+})
+export class AppComponent {
+  email = '';
+  save() {}
 }
-
-export default App;
 ```
 
-Check out this [Live Demo](https://stackblitz.com/edit/vitejs-vite-b6zuds?file=src%2FApp.tsx).
+**5. Reactive Forms:**
+
+```ts
+import { ReactiveFormsModule, FormControl } from '@angular/forms';
+import { LabxInput } from 'labx-components/angular';
+
+@Component({
+  imports: [ReactiveFormsModule, LabxInput],
+  template: `
+    <labx-input label="Correo" [formControl]="emailControl"></labx-input>
+  `
+})
+export class AppComponent {
+  emailControl = new FormControl('');
+}
+```
+
+---
+
+## Components API
+
+### `<labx-button>`
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `label` | `string` | `'Button'` | Button text |
+| `variant` | `'primary' \| 'secondary' \| 'danger'` | `'primary'` | Visual style |
+| `disabled` | `boolean` | `false` | Disables the button |
+| `type` | `'button' \| 'submit' \| 'reset'` | `'button'` | HTML button type |
+
+| Event | Detail | Description |
+|-------|--------|-------------|
+| `labxClick` | `void` | Emitted on click |
+
+---
+
+### `<labx-input>`
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `label` | `string` | — | Floating label text |
+| `value` | `string` | `''` | Input value |
+| `type` | `string` | `'text'` | HTML input type |
+| `disabled` | `boolean` | `false` | Disables the input |
+| `error` | `string` | — | Error message shown below |
+
+| Slot | Description |
+|------|-------------|
+| `icon-left` | Icon on the left side |
+| `icon-right` | Icon on the right side |
+
+| Event | Detail | Description |
+|-------|--------|-------------|
+| `labxChange` | `string` | Emitted on value change |
+
+---
+
+### `<labx-icon>`
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `name` | `string` | — | Material Symbols icon name |
+| `size` | `number` | `20` | Size in px |
+| `filled` | `boolean` | `false` | Filled vs outlined style |
+
+---
+
+## Design Tokens
+
+CSS custom properties available globally after importing the stylesheet:
+
+```css
+--color-bg-surface
+--color-bg-light
+--color-bg-subtle
+--color-primary
+--color-primary-hover
+--color-primary-light
+--color-text-default
+--color-text-muted
+--color-border
+--color-success
+--color-success-light
+--color-danger
+--color-danger-light
+--color-disabled
+```
+
+### Utility Classes
+
+| Class | Property |
+|-------|----------|
+| `labx-bg-surface` | `background-color: var(--color-bg-surface)` |
+| `labx-bg-light` | `background-color: var(--color-bg-light)` |
+| `labx-bg-subtle` | `background-color: var(--color-bg-subtle)` |
+| `labx-bg-primary` | `background-color: var(--color-primary)` |
+| `labx-bg-success` | `background-color: var(--color-success-light)` |
+| `labx-bg-danger` | `background-color: var(--color-danger-light)` |
+| `labx-text-default` | `color: var(--color-text-default)` |
+| `labx-text-muted` | `color: var(--color-text-muted)` |
+| `labx-text-primary` | `color: var(--color-primary)` |
+| `labx-text-success` | `color: var(--color-success)` |
+| `labx-text-danger` | `color: var(--color-danger)` |
+| `labx-text-disabled` | `color: var(--color-disabled)` |
+| `labx-border` | `border: 1px solid var(--color-border)` |
+| `labx-border-primary` | `border: 1px solid var(--color-primary)` |
+| `labx-border-success` | `border: 1px solid var(--color-success)` |
+| `labx-border-danger` | `border: 1px solid var(--color-danger)` |
+
+---
+
+## License
+
+MIT
