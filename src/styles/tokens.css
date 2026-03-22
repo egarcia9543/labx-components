@@ -31,6 +31,13 @@
 
   /* ─── Disabled ────────────────────────────────────── */
   --color-disabled:  #B0A89A;
+
+  /* ─── Typography ──────────────────────────────────── */
+  --font-family-base: 'Noto Sans', system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-family-base);
 }
 
 /* ─────────────────────────────────────────────────────
