@@ -1,7 +1,16 @@
 {
-  "name": "labx-components",
-  "version": "0.0.1",
-  "description": "Stencil Component Starter",
+  "name": "labx-component",
+  "version": "0.1.0",
+  "description": "Web Components library built with Stencil. Includes Angular wrappers and design tokens.",
+  "author": "egarcia9543",
+  "license": "MIT",
+  "keywords": [
+    "stencil",
+    "web-components",
+    "angular",
+    "design-system",
+    "labx"
+  ],
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
@@ -13,23 +22,19 @@
       "import": "./dist/labx-components/labx-components.esm.js",
       "require": "./dist/labx-components/labx-components.cjs.js"
     },
-    "./my-component": {
-      "import": "./dist/components/my-component.js",
-      "types": "./dist/components/my-component.d.ts"
-    },
     "./loader": {
       "import": "./loader/index.js",
       "require": "./loader/index.cjs",
       "types": "./loader/index.d.ts"
+    },
+    "./angular": {
+      "import": "./dist-angular/components.ts"
     }
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/stenciljs/component-starter.git"
   },
   "files": [
     "dist/",
-    "loader/"
+    "loader/",
+    "dist-angular/"
   ],
   "scripts": {
     "build": "stencil build",
@@ -46,5 +51,7 @@
     "@vitest/browser-playwright": "^4.0.0",
     "vitest": "^4.0.0"
   },
-  "license": "MIT"
+  "peerDependencies": {
+    "@stencil/core": "^4.0.0"
+  }
 }
