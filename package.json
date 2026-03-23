@@ -1,6 +1,6 @@
 {
   "name": "labx-components",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Web Components library built with Stencil. Includes Angular wrappers and design tokens.",
   "author": "egarcia9543",
   "license": "MIT",
