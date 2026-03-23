@@ -1,6 +1,6 @@
 {
   "name": "labx-components",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Web Components library built with Stencil. Includes Angular wrappers and design tokens.",
   "author": "egarcia9543",
   "license": "MIT",
@@ -46,8 +46,8 @@
     "dist-angular/"
   ],
   "scripts": {
-    "build": "stencil build && tsc -p tsconfig.angular.json",
-    "build:angular": "tsc -p tsconfig.angular.json",
+    "build": "stencil build && node scripts/patch-angular.js && tsc -p tsconfig.angular.json",
+    "build:angular": "node scripts/patch-angular.js && tsc -p tsconfig.angular.json",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil-test",
     "test:watch": "stencil-test --watch",
