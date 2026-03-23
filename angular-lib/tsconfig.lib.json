@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "bundler",
+    "declaration": true,
+    "declarationMap": true,
+    "inlineSources": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "useDefineForClassFields": false,
+    "baseUrl": ".",
+    "paths": {
+      "labx-components/components": ["../dist/components/index.js"],
+      "labx-components/components/*": ["../dist/components/*"]
+    }
+  },
+  "angularCompilerOptions": {
+    "compilationMode": "partial"
+  },
+  "include": ["src/**/*.ts", "../dist/types/components.d.ts"],
+  "exclude": ["**/*.spec.ts"]
+}

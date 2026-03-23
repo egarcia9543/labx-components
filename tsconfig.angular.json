@@ -10,5 +10,8 @@
     "skipLibCheck": true,
     "strict": false
   },
+  "angularCompilerOptions": {
+    "compilationMode": "partial"
+  },
   "include": ["src-angular/**/*.ts"]
 }

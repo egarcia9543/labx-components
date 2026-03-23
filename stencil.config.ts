@@ -8,8 +8,8 @@ export const config: Config = {
     angularOutputTarget({
       componentCorePackage: 'labx-components',
       outputType: 'standalone',
-      directivesProxyFile: 'src-angular/components.ts',
-      directivesArrayFile: 'src-angular/index.ts',
+      directivesProxyFile: 'angular-lib/src/lib/components.ts',
+      directivesArrayFile: 'angular-lib/src/lib/index.ts',
       valueAccessorConfigs: [
         {
           elementSelectors: ['labx-input'],
