@@ -47,7 +47,7 @@
     "dist-angular/"
   ],
   "scripts": {
-    "build": "mkdir -p dist-angular && stencil build && node scripts/patch-angular.js && tsc -p tsconfig.angular.json",
+    "build": "node -e \"require('fs').mkdirSync('dist-angular',{recursive:true})\" && stencil build && node scripts/patch-angular.js && tsc -p tsconfig.angular.json",
     "build:angular": "node scripts/patch-angular.js && tsc -p tsconfig.angular.json",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil-test",
